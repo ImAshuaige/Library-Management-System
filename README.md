@@ -10,4 +10,6 @@ This is an individual assignment for module IS3106 Enterprise Systems Interface 
 #### Login
 ![login](https://i.ibb.co/TMgDR11/login.jpg)
 #### Home
+![home](https://i.ibb.co/CPd3m0V/mainPage.jpg)
 #### Logout
+![logout](https://i.ibb.co/LNjkJ3v/logout.jpg)
