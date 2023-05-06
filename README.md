@@ -7,4 +7,7 @@ This is an individual assignment for module IS3106 Enterprise Systems Interface 
 - Database: MySQL (`drrsdbs` as database name, `root` as database user, `password` as database password)
   
 ### Screenshots 
-
+#### Login
+![login](https://i.ibb.co/TMgDR11/login.jpg)
+#### Home
+#### Logout
