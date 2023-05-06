@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+        <style type="text/css">
+            body {
+                background-color: #D2B48C;
+                background-image: url('resources/images/background.jpg');
+                background-size: cover;
+                font-family: Arial, sans-serif;
+            }
+            #top {
+                background-color: #8B4513;
+                color: #FFFFFF;
+                padding: 20px;
+                font-size: 17px; 
+            }
+            #left {            
+                background-color: rgba(210, 180, 140, 0); /* 50% transparent D2B48C */
+                width: 16%;
+                float: left;
+            }
+            #content {
+                background-color: rgba(210, 180, 140, 0.8); /* 50% transparent D2B48C */
+                color: #000000;
+                padding: 20px;
+                width: 80%;
+                margin-left: 240px;
+                margin-top: 24px;
+            }
+            a {
+                text-decoration: none;
+                color: #000000;
+                font-weight: bold;
+            }
+            a:hover {
+                color: #8B4513;
+            }
+            .sideMenu {
+                background-color: #FF0000; /* Set the background color */
+                color: #FFFFFF; 
+            }
+        </style>
+        <title><ui:insert name="title">Title</ui:insert></title>
+    </h:head>
+
+    <h:body>
+        <div id="top" class="top">
+            <ui:insert name="top">Top</ui:insert>
+        </div>
+        <div>
+            <div id="left">
+                <p:menu>
+                    <p:submenu label="Menu" styleClass="sideMenu">
+                        <p:menuitem value="Home Page" url="homePage.xhtml"/>
+                        <p:menuitem value="Register Member" url="registerMember.xhtml"/>
+                        <p:menuitem value="Upload Book" url="uploadBook.xhtml"/>
+                        <p:menuitem value="Manage Book" url="manageBook.xhtml"/>
+                        <p:menuitem value="Lend Book" url="lendBook.xhtml"/>
+                        <p:menuitem value="Return Book" url="returnBook.xhtml"/>
+                        <p:menuitem value="Logout" url="logout.xhtml" style = "margin-bottom: 100px;"/>
+                    </p:submenu>
+                </p:menu>
+            </div>
+            <div id="content" class="left_content">
+                <ui:insert name="content">Content</ui:insert>
+            </div>
+        </div>
+    </h:body>
+
+</html>

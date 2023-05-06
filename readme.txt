@@ -1,0 +1,30 @@
+IS3106 - Enterprise Systems Interface Design and Development
+Assignment 1 Library Management System
+Huang Rui A0236508A
+
+This README file describes the extra features that have been incorporated into the system.
+
+Extra Features:
+
+1. Admin Registration
+    The user is able to register as an Admin by clicking on the [Admin Register] button. All input fields are required, and the username must be unique. If the user does not fill in a certain field or fills it in with an existing username, the registration will fail, and an error message will be displayed. Note that this system does not have backend initialization. The user must register first before logging in for the first time accessing the system. Successful registration will redirect the user to the login page. 
+
+2. Home Page 
+    2.1 View the total number of books in the system database 
+    2.2 View the total number of members in the system database   
+    2.3 View the number of current lendings(on-going rentals) 
+    2.4 View the list of all the members(including member ID, Name and Identity Number)
+    2.5 View the list of current lendings(including borrower member ID, name of the borrowed book and the lending start date)
+    The home page is the first page the user sees after login, the views will be updated according to the changes made by the user.
+ 
+3. Upload Book 
+    This feature allows the user to upload a book by inputting the book's title, ISBN, and author. 
+4. Manage Book
+    4.1 Book List
+        The user is able to see all the books that are currently in the system, including the book's ID, title, ISBN, author, and availability. The view will be updated according to the changes made by the user. 
+    4.2 Search Book
+        When the user inputs a search text and clicks on the [Search] button, the table will be updated with all the books that contain the search text in their title, ISBN, or author.
+    4.3 Delete Book 
+        The user can delete a book by clicking the [Delete] button in the Action column in the corresponding row. The book will be deleted, and the table will be refreshed. Note that the user cannot delete a book that is currently on rental (i.e., Not Available).
+    4.4 Edit a Book
+        When the user clicks on the [Edit a Book] button, a dialog box will pop up and prompt the user to input the ID of the book they want to update and the fields they want to change. The user can leave the fields they don't want to change blank and only enter input for the fields they want to update. However, the user must enter a valid book ID to complete the update.

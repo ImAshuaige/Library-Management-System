@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./layout/default.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        title
+    </ui:define>
+
+    <ui:define name="top">
+        West Coast Community Library
+    </ui:define>
+
+    <ui:define name="content">
+        <div style="text-align: center;">
+            <h:form id = "form">
+                <p:panelGrid columns="2" style="margin: 0 auto; text-align: center;">
+                    <p:outputLabel for="start" value="Lending Start Date:" style="font-size: 24px;" />
+                    <p:outputLabel id="start" value="#{lendAndReturnManagedBean.currentDate}" style="font-size: 24px;">
+                        <f:convertDateTime pattern="yyyy-MM-dd" />
+                    </p:outputLabel>
+
+                    <p:outputLabel for="end" value="Lending End Date:" style="font-size: 24px;" />
+                    <p:outputLabel id="end" value="#{lendAndReturnManagedBean.returnDate}" style="font-size: 24px;">
+                        <f:convertDateTime pattern="yyyy-MM-dd" />
+                    </p:outputLabel>
+
+                    <p:outputLabel for="fineAmount" value="Fine Amount:" style="font-size: 24px;" />
+                    <p:outputLabel id="fineAmount" value="#{lendAndReturnManagedBean.fineAmount}" style="font-size: 24px;">
+                        <f:convertNumber type="currency" currencySymbol="$" />
+                    </p:outputLabel>
+                </p:panelGrid>
+                <p:commandButton value="Finish Payment" action="#{lendAndReturnManagedBean.finishPayment}" icon="pi pi-check" 
+                                 styleClass="ui-button-success" 
+                                 style="margin-top: 50px; margin-left: auto; margin-right: auto; display: block; width: 200px; height: 50px;" 
+                                 update = ":form"/>
+               
+
+            </h:form>
+        </div>
+    </ui:define>
+
+</ui:composition>

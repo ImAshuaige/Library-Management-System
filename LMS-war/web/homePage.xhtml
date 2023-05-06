@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./layout/default.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">
+        West Coast Community Library
+    </ui:define>
+
+    <ui:define name="top">
+        West Coast Community Library
+    </ui:define>
+
+    <ui:define name="content">
+        <div style="display: inline-block; width: 300px; border: 1px solid #ccc; border-radius: 4px; background-color: #FADBD8; padding: 10px; margin-right: 45px; text-align: center;">
+            <h3 style="font-weight: bold; font-size: 14px; margin: 0;">Total Number Of Books</h3>
+            <h1 style="margin: 10px; color: #C0392B;">#{bookManagedBean.numOfBooks}</h1>
+        </div>
+
+
+        <div style="display: inline-block; width: 300px; border: 1px solid #ccc; border-radius: 4px; background-color: #D6DBDF; padding: 10px; margin-right: 45px; text-align: center;">
+            <h3 style="font-weight: bold; font-size: 14px; margin: 0;">Total Number Of Members</h3>
+            <h1 style="margin: 10px; color: #34495E;">#{memberManagedBean.numOfMembers}</h1>
+        </div>
+
+        <div style="display: inline-block; width: 300px; border: 1px solid #ccc; border-radius: 4px; background-color: #D5F5E3; padding: 10px; margin-right: 10px; text-align: center;">
+            <h3 style="font-weight: bold; font-size: 14px; margin: 0;">Current Lendings</h3>
+            <h1 style="margin: 10px; color: #229954;">#{lendAndReturnManagedBean.currLendingSize}</h1>
+        </div>
+
+        <div style="display: flex;">
+
+            <div style="flex: 1; margin-right: 20px; margin-top: 20px;">
+                <p:dataTable value="#{memberManagedBean.members}" var="member"
+                             style="height: 300px; overflow-y: auto;">
+                    <f:facet name="header">
+                        <h:outputText value="Member List"
+                                      style="display: block; text-align: center; color: #8B4513; font-size: 20px; font-weight: bold;" />
+                    </f:facet>
+                    <p:column headerText="ID">
+                        <h:outputText value="#{member.id}" />
+                    </p:column>
+                    <p:column headerText="Name">
+                        <h:outputText value="#{member.firstName} #{member.lastName}" />
+                    </p:column>
+                    <p:column headerText="Identity Number">
+                        <h:outputText value="#{member.identityNo}" />
+                    </p:column>
+                </p:dataTable>
+            </div>
+
+            <div style="flex: 1; margin-left: 20px; margin-top: 20px;">
+                <p:dataTable value="#{lendAndReturnManagedBean.currentLendings}" var="lending"
+                             style="height: 300px; overflow-y: auto;">
+                    <f:facet name="header">
+                        <h:outputText value="Current Lending List"
+                                      style="display: block; text-align: center; color: #8B4513; font-size: 20px; font-weight: bold;" />
+                    </f:facet>
+                    <p:column headerText="Member ID">
+                        <h:outputText value="#{lending.memberId}" />
+                    </p:column>
+                    <p:column headerText="Book Title">
+                        <h:outputText value="#{lending.book.title}" />
+                    </p:column>
+                    <p:column headerText="Lending Date">
+                        <h:outputText value="#{lending.lendDate}">
+                            <f:convertDateTime pattern="yyyy-MM-dd" />
+                        </h:outputText>
+                    </p:column>
+
+                </p:dataTable>
+            </div>
+
+        </div>
+    </ui:define>
+
+</ui:composition>

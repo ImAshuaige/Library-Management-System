@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Register as an Admin</title>
+        <style>
+            .register-wrapper {
+                display: flex;
+                justify-content: space-between;
+                background-color: #3C2A21;
+                min-height: 100vh;
+            }
+            .register-panel {
+                width: 50%;
+
+                background-color: rgba(255, 255, 255, 0.8);
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+            }
+            .register-header {
+                font-size: 30px;
+                color: #5D9C59;
+                margin-bottom: 20px;
+            }
+            .register-form input[type=text], input[type=password] {
+                width: 40%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            .register-submit {
+                background-color: #5D9C59;
+                border-color: #5D9C59;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                width: 100%;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div class="register-wrapper">
+            <div class="register-panel">
+                <h:form id="form">
+                    <p:panel header="Register as an Admin" styleClass="register-header">
+                        <p:messages for="messages" showDetail="true" closable="true" /> 
+                        <div class="register-form">
+                            <h:panelGroup>
+                                <p:outputLabel for="firstName" value="First Name:" />
+                                <p:inputText id="firstName" value="#{authenticationManagedBean.firstName}" 
+                                             required="true"
+                                             requiredMessage= "First name is required"
+                                             style = "margin-left: 5px"/>
+                                <p:message for="firstName"/>
+                            </h:panelGroup><br></br>
+                            <h:panelGroup>
+                                <p:outputLabel for="lastName" value="Last Name:" />
+                                <p:inputText id="lastName" value="#{authenticationManagedBean.lastName}" required="true"
+                                             requiredMessage= "Last name is required"
+                                             style = "margin-left: 5px"/>
+                                <p:message for="lastName"/>
+                            </h:panelGroup><br></br>
+                            <h:panelGroup>
+                                <p:outputLabel for="username" value="Username:" />
+                                <p:inputText id="username" value="#{authenticationManagedBean.username}"
+                                             required="true"
+                                             requiredMessage= "Username is required"
+                                             style = "margin-left: 5px"/>
+                                <p:message for="username"/>
+                            </h:panelGroup><br></br>
+                            <h:panelGroup>
+                                <p:outputLabel for="password" value="Password:" />
+                                <p:password id="password" value="#{authenticationManagedBean.password}" required="true"
+                                            requiredMessage= "Password is required"
+                                            style = "margin-left: 5px"/>
+                                <p:message for="password"/>
+                            </h:panelGroup>
+                            <p:commandButton value="Submit"
+                                             action="#{authenticationManagedBean.registerAdmin}"
+                                             style="margin-top: 10px;
+                                             background-color: #3C2317;
+                                             border-color: #3C2317;" 
+                                             styleClass="register-submit"
+                                             update=":form"/>
+                        </div>
+                    </p:panel>
+                </h:form>
+            </div>
+            <div class="register-logo">
+                <p:graphicImage value="/resources/images/loginRHSPicture.jpg"  width="700" height="700"/>
+            </div>
+        </div>
+    </h:body>
+</html>

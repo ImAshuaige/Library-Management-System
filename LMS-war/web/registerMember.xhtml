@@ -1,0 +1,84 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./layout/default.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        Register Member Page
+    </ui:define>
+
+    <ui:define name="top">
+        West Coast Community Library
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="form" style="margin-bottom: 20px; margin-top: 20px;" >   
+            <p:messages for="messages" showDetail="true" closable="true" />
+            <p:panelGrid columns="2" id="memberForm" columnClasses="label, value" style="width: 1000px;" >
+
+                <h:outputLabel for="firstName">First Name:</h:outputLabel>
+                <h:panelGroup>
+                    <p:inputText id="firstName" value="#{memberManagedBean.firstName}" style="margin-bottom: 10px;" 
+                                 required="true"
+                                 requiredMessage= "First Name is required"/>                
+                    <p:message for="firstName" id="firstNameMsg" showDetail="true"/>
+                </h:panelGroup>
+                <h:outputLabel for="lastName">Last Name:</h:outputLabel>
+                <h:panelGroup>
+                    <p:inputText id="lastName" value="#{memberManagedBean.lastName}" style="margin-bottom: 10px; " 
+                                 required="true"
+                                 requiredMessage= "Last Name is required"/>
+                    <p:message for="lastName" id="lastNameMsg" showDetail="true"/>
+                </h:panelGroup>
+                <h:outputLabel for="gender">Gender:</h:outputLabel>
+                <h:panelGroup>
+                    <p:selectOneMenu id="gender" value="#{memberManagedBean.gender}" style="margin-bottom: 10px; " required="true">
+                        <f:selectItem itemValue="male" itemLabel="Male" />
+                        <f:selectItem itemValue="female" itemLabel="Female" />
+                    </p:selectOneMenu >
+                    <p:message for="gender" showDetail="true"/>
+                </h:panelGroup>
+                <h:outputLabel for="age">Age:</h:outputLabel>
+                <h:panelGroup>
+                    <p:inputText id="age" value="#{memberManagedBean.age}" style="margin-bottom: 10px;"  
+                                 required="true"
+                                 requiredMessage= "Age is required"/>
+                    <p:message for="age" showDetail="true"/>
+                </h:panelGroup>
+                <h:outputLabel for="identityNumber">Identity Number:</h:outputLabel>
+                <h:panelGroup>
+                    <p:inputText id="identityNumber" value="#{memberManagedBean.identityNo}" style="margin-bottom: 10px;"  
+                                 required="true"
+                                 requiredMessage= "Identity Number is required"/>
+                    <p:message for="identityNumber" showDetail="true"/>
+                </h:panelGroup>
+                <h:outputLabel for="phone">Phone:</h:outputLabel>
+                <h:panelGroup>
+                    <p:inputText id="phone" value="#{memberManagedBean.phone}" style="margin-bottom: 10px;"  
+                                 required="true"
+                                 requiredMessage= "Phone is required"/>
+                    <p:message for="phone" showDetail="true"/>
+                </h:panelGroup>
+                <h:outputLabel for="address">Address:</h:outputLabel>
+                <h:panelGroup>
+                    <p:inputTextarea id="address" value="#{memberManagedBean.address}" style="margin-bottom: 10px; width:500px;"  
+                                     required="true"
+                                     requiredMessage= "Address is required"/>
+                    <p:message for="address" showDetail="true"/>
+                </h:panelGroup>
+            </p:panelGrid>
+            <div style="display: flex; justify-content: center; align-items: center; height: 10vh;">
+                <p:commandButton value="Submit" 
+                                 action="#{memberManagedBean.registerMember}"
+                                 style="margin-top: 10px;
+                                 background-color: #3C2317;
+                                 border-color: #3C2317;
+                                 width: 150px;"
+                                 update=":form"/>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
